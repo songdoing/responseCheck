@@ -3,12 +3,44 @@ import React, { Component } from 'react';
 class ResponseCheck extends Component {
     state = {
         state : 'waiting',
-        message : 'You need to click for starting a game.',
+        message : 'Click to start.',
         result : [],
     };
+    // 타임아웃 선언해주고, this.timeout에다가 setTimeout()를 대입해줌
+    timeout;
+    startTime;
+    endTime; 
 
     onClickScreen = () => {
-
+        const { state, message, result } = this.state;
+        if(state === 'waiting') {
+            this.setState({
+                state : 'ready',
+                message : 'Click when it changes green.'
+            });
+            this.timeout = setTimeout(() => {
+                this.setState({
+                    state : 'now',
+                    message : 'Click Now!'
+                });
+                this.startTime = new Date();
+            }, Math.floor(Math.random() * 1000) + 2000); //2초 3초 random            
+        } else if (state === 'ready') { //클릭했다면 성급하게 한거임
+            clearTimeout(this.timeout); //위의setTimeout 초기화함.
+            this.setState({
+                state : 'waiting',
+                message : 'bruh..Do not hurry.'
+            })
+        } else if (state === 'now') { //   반응속도 체크
+            this.endTime = new Date();
+            this.setState((prevState) => {
+                return {
+                    state : 'waiting',
+                    result : [...prevState.result, this.endTime - this.startTime],
+                    message : 'Click to start.'
+                };                
+            });
+        }
     };
 
     renderAverage = () => {
@@ -28,8 +60,9 @@ class ResponseCheck extends Component {
                 <div id="screen" className={state} onClick={this.onClickScreen}>
                     {message}
                 </div>
+                
                 {/* false, undefined, null은 jsx에서 태그없음을 의마한다 */}
-                {this.renderAverage()}                
+                <div>{this.renderAverage()}</div>                
             </>
         );
     }
