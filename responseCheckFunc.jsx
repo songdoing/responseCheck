@@ -59,7 +59,18 @@ const ResponseCheck = () => {
                 <div id="screen" className={state} onClick={onClickScreen}>
                     {message}
                 </div>
-                
+                {/* jsx에서 중괄호를 하여 js코드가 가능케하고,jsx에서는 못쓰지만, 함수안에선 if 사용가능  */}
+                {/*     {(()=> {
+                        if (result.length === 0) {
+                            return null;
+                        } else {
+                            return
+                            <>
+                                <div>average of response time: {result.reduce((a,c) => a +c) / result.length}ms</div>
+                                <button onClick={onReset}>RESET</button>
+                            </>
+                        }
+                        })()}    즉시실행함수도 붙이기 */}
                 {/* false, undefined, null은 jsx에서 태그없음을 의마한다 */}
                 <div id="result">{renderAverage()}</div>                
             </>
