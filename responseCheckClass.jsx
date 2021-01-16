@@ -71,7 +71,7 @@ class ResponseCheck extends Component {
                 </div>
                 
                 {/* false, undefined, null은 jsx에서 태그없음을 의마한다 */}
-                <div>{this.renderAverage()}</div>                
+                <div id="result">{this.renderAverage()}</div>                
             </>
         );
     }
