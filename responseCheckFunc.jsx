@@ -48,7 +48,7 @@ const ResponseCheck = () => {
             result.length === 0 
             ? null 
             :<>
-            <div>average of response time: {result.reduce((a,c) => a +c) / result.length}ms</div>
+            <div>average of response time: {parseInt(result.reduce((a,c) => a +c) / result.length)}ms</div>
             <button onClick={onReset}>RESET</button>
             </>
         )
