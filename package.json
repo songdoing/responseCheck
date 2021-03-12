@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack serve --env development",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "author": "Jenny Song",
   "license": "ISC",
-  "homepage" : "https://songdoing.github.io/responseCheck.git/",
+  "homepage": "https://songdoing.github.io/responseCheck.git/",
   "dependencies": {
+    "gh-pages": "^3.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "webpack-dev-server": "^3.11.2"
