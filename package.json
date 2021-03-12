@@ -10,7 +10,7 @@
   },
   "author": "Jenny Song",
   "license": "ISC",
-  "homepage" : "https://songdoing.github.io/responseCheck/",
+  "homepage" : "https://songdoing.github.io/responseCheck.git/",
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
