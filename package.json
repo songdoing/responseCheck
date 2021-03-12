@@ -4,10 +4,13 @@
   "description": "a game how fast your response",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --env development"
+    "dev": "webpack serve --env development",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build"
   },
   "author": "Jenny Song",
   "license": "ISC",
+  "homepage" : "https://songdoing.github.io/responseCheck/",
   "dependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
